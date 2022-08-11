@@ -13,7 +13,7 @@ gcc -pthread -o 'nome_executavel' programa.c
 
 2. tipo default de thread é o pthread você deve declarar a thread antes de usa-lá.
 ```
-pthread tid;
+pthread_t tid;
 ```
 3. Para criação de uma thread é usado a função pthread_create, que recebe: endereço de memória de um pthread, NULL, função de thread, parametro para função de thread.
 ```
@@ -28,3 +28,11 @@ void* funcao_thread (void* args);
 ```
 pthread_join(tid, NULL);
 ```
+<hr>
+
+## Atividade 1
+Faça um programa que calcule a soma de um vertor de 100.000 das seguintes maneiras: de forma iterativa, com 2 Threads e com 4 Threads e meça o tempo de execução em cada situação.
+Ao final faça seu programa de forma genérica para qualquer quantidade de threads.
+
+
+[Como medir tempo em C](medir_tempo.md)
