@@ -1,0 +1,36 @@
+Existem 6 processos nesse problema: 3 processos infectados e 3 processos laboratórios.
+
+
+Cada um dos infectados vai fazer uma vacina e usá-la, para fazer uma vacina é necessário vírus morto, injeção e insumo secreto.
+Cada infectado tem 1 dos 3 produtos.
+* Exemplo: 1 processo infectado tem um suprimento infinito de vírus morto, outro tem de injeção e o último tem de insumo secreto.
+[o vírus é altamente mutável então a vacina tem que ser reaplicada a todo momento que for possível].
+
+
+Cada laboratório tem um diferente suprimento infinito de 2 dos 3 produtos.
+Cada laboratório coloca seus 2 produtos próprios numa mesa em comum a todos infectados a disposição de quem quiser e
+todos os infectados correm pra pegar os dois que eles precisam pra fazer a vacina e somente renovam quando os SEUS PRÓPRIOS
+distribuídos forem consumidos. [o lab2 não renova se consumir a injeção do lab1 e o insumo secreto do lab3, por exemplo]
+
+* Exemplo:laboratorio1 tem injeção, vírus morto, laboratorio2 tem injeção e insumo secreto e laboratorio3 tem insumo secreto e vírus morto.
+
+
+--------------------------------------------------------------------------------------------------------
+
+* Como garantir exclusão mutua, sem deadlock e sem starvation e o seu código ser o mais paralelo possível?
+[dica, só vai funcionar com uma mescla de semáforos e mutexes]
+
+a entrada do código será um numero que vai ser o numero de vezes MÍNIMO que cada thread realizou seu objetivo primordial.
+[um infectado que atinge o mínimo NÃO para de concorrer com os outros, ele continua se vacinando]
+
+A saída deverá ser o número de vezes que cada thread realizou seu objetivo primordial:
+no caso, os infectados irão contabilizar o número de vezes que cada um se injetou com a vacina e os laboratórios o número de vezes que cada um renovou seus estoques:
+Exemplo de de execução:
+
+./covid-19 90  [irá executar até todas as threads terem executado seu objetivo PELO MENOS 90 vezes]
+infectado 1: 120
+infectado 2: 100
+infectado 3: 90
+laboratorio 1: 120
+laboratorio 2: 100
+laboratorio 3: 90

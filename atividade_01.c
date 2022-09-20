@@ -26,9 +26,9 @@ void* funcao_thread (void* args){
     *inicio = ( (*df_t->size)/df_t->n_threads) * (df_t->id-1);
     *fim = ( (*df_t->size)/df_t->n_threads) * (df_t->id);
 
-    for(int i=*inicio ; i<*fim ; i++){
-        df_t->soma = df_t->soma + df_t->p_vetor[i];
-    }
+    //for(int i=*inicio ; i<*fim ; i++){
+    //    df_t->soma = df_t->soma + df_t->p_vetor[i]);
+    //}
     free(inicio);
     free(fim);
 
@@ -75,16 +75,17 @@ int main(int argc,char *argv[]){
             lst_df[t].p_vetor = vetor;
             lst_df[t].size = size;
             lst_df[t].n_threads = n_threads;
-            pthread_create(&lst_thread[t],NULL, funcao_thread, &lst_df[t]);
+            //pthread_create(&lst_thread[t],NULL, funcao_thread, &lst_df[t]);
         }
-
+        /*
         long int soma_multi = 0;
         for(int t=0 ; t < n_threads ; t++){
             pthread_join(lst_thread[t], NULL); 
             soma_multi = soma_multi + lst_df[t].soma;
         }
+        */
         
-        printf("soma multhread some é:%ld\n",soma_multi);
+        //printf("soma multhread some é:%ld\n",soma_multi);
         clock_t m_4 = clock();
         double Tempo_2 = (m_4 - m_3) * 1000.0 / CLOCKS_PER_SEC;
         printf("Tempo gasto: %g ms\n", Tempo_2);
