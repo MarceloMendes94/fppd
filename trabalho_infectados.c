@@ -12,6 +12,8 @@ cada um precisa consumir os 3 produtos disponiveis porém
 cada um conta com uma estoque infinito de 1 produto, sendo
 que esse estoque é diferente entre cada consumidor.*/
 
+//[ VM IJ VM IS IJ IS ]
+
 #define TAM 6
 #define N_RODADAS 99
 
@@ -70,6 +72,37 @@ void* L3_ij_is(void* arg){
     return NULL;
 }
 
+
+
+// consumidores
+
+void pegar_material(void* arg, int pos1, int pos2){
+    data_t* pkg = (data_t*) arg;
+    //Se tiver o produto consumir;
+    int tem_produto = nao_tem_produto((void*) pkg, pos1, pos2)!=0;
+    if (tem_produto){
+        
+    }
+
+
+
+    return NULL;
+}
+
+void * C1_vm_inf(void * arg){
+    // pesquisar recurso na posição de IJ e IS   
+    data_t* pkg = (data_t*) arg;
+    // pegar injeção
+    pegar_material((void*) pkg, 1, 4);
+    // pegar insumo X
+    pegar_material((void*) pkg, 3, 5);
+    printf("vacina feita");
+    return NULL;
+}
+
+void * C2_ij_inf(void * arg);
+
+void * C3_is_inf(void * arg);
 
 int main(){
     int i=0;
